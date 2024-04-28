@@ -83,8 +83,6 @@ public class PKMPagedObject<T>: Codable {
         return previous != nil
     }
     
-    
-    
     // MARK: - Init
     
     public required init(from decoder: Decoder) throws {
@@ -99,7 +97,23 @@ public class PKMPagedObject<T>: Codable {
         }
     }
     
-    
+    public init(
+        count: Int?,
+        next: String?,
+        previous: String?,
+        current: String,
+        results: [PKMAPIResource<T>]?,
+        limit: Int,
+        offset: Int
+    ) {
+        self.count = count
+        self.next = next
+        self.previous = previous
+        self.current = current
+        self.results = results
+        self.limit = limit
+        self.offset = offset
+    }
     
     // MARK: - Update
     
