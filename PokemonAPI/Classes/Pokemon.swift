@@ -583,6 +583,8 @@ open class PKMPokemonSprites: Codable, SelfDecodable {
     /// The shiny female depiction of this Pokémon from the back in battle
     open var backShinyFemale: String?
     
+    open var other: PKMPokemonOtherSprites?
+    
     public static var decoder: JSONDecoder = {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -590,6 +592,21 @@ open class PKMPokemonSprites: Codable, SelfDecodable {
     }()
 }
 
+open class PKMPokemonOtherSprites: Codable {
+    open var home: PKMPokemonOtherHomeSprites?
+    
+    public init(home: PKMPokemonOtherHomeSprites? = nil) {
+        self.home = home
+    }
+}
+
+open class PKMPokemonOtherHomeSprites: Codable {
+    open var frontDefault: String?
+    
+    public init(frontDefault: String? = nil) {
+        self.frontDefault = frontDefault
+    }
+}
 
 /// Location Area Encounter
 open class PKMLocationAreaEncounter: Codable, SelfDecodable {

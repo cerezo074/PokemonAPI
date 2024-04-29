@@ -17,6 +17,9 @@ open class PKMAPIResource<T>: Codable {
     /// The URL of the referenced resource
     open var url: String?
     
+    public init(url: String?) {
+        self.url = url
+    }
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -34,6 +37,10 @@ open class PKMNamedAPIResource<T>: PKMAPIResource<T> {
     /// The name of the referenced resource
     open var name: String?
     
+    public init(name: String?, url: String?) {
+        super.init(url: url)
+        self.name = name
+    }
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
