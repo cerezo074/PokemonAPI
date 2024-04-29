@@ -42,10 +42,10 @@ public class PKMPagedObject<T>: Codable {
     public private(set) var count: Int?
     
     /// The url for the next page in the list
-    private(set) var next: String?
+    public private(set) var next: String?
     
     /// The url for the previous page in the list
-    private(set) var previous: String?
+    public private(set) var previous: String?
     
     /// The url for the current page
     public private(set) var current: String = ""
@@ -54,10 +54,10 @@ public class PKMPagedObject<T>: Codable {
     public private(set) var results: [PKMAPIResource<T>]?
     
     /// The number of results returned on each page
-    private(set) var limit: Int = 0
+    public private(set) var limit: Int = 0
     
     /// The current offset for the web service
-    private(set) var offset: Int = 0
+    public private(set) var offset: Int = 0
     
     /// The number of pages produced based of the pageLimit
     public var pages: Int {
